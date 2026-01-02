@@ -1,1 +1,4 @@
 project_id = "crwwsicgpwnxzrywindq"
+
+[functions.dpp-chat]
+verify_jwt = false
