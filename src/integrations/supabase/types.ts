@@ -14,13 +14,369 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      chat_sessions: {
+        Row: {
+          collected_data: Json
+          created_at: string
+          id: string
+          industry: string | null
+          messages: Json
+          product_id: string | null
+          session_token: string
+          status: string
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          collected_data?: Json
+          created_at?: string
+          id?: string
+          industry?: string | null
+          messages?: Json
+          product_id?: string | null
+          session_token: string
+          status?: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          collected_data?: Json
+          created_at?: string
+          id?: string
+          industry?: string | null
+          messages?: Json
+          product_id?: string | null
+          session_token?: string
+          status?: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "chat_sessions_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      companies: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          logo_url: string | null
+          name: string
+          slug: string
+          updated_at: string
+          user_id: string | null
+          website: string | null
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          logo_url?: string | null
+          name: string
+          slug: string
+          updated_at?: string
+          user_id?: string | null
+          website?: string | null
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          logo_url?: string | null
+          name?: string
+          slug?: string
+          updated_at?: string
+          user_id?: string | null
+          website?: string | null
+        }
+        Relationships: []
+      }
+      product_dpps: {
+        Row: {
+          available_languages: string[] | null
+          content: Json
+          created_at: string
+          eu_compliance_data: Json | null
+          id: string
+          primary_language: string
+          product_id: string
+          published_at: string | null
+          status: string
+          updated_at: string
+          version: number
+        }
+        Insert: {
+          available_languages?: string[] | null
+          content?: Json
+          created_at?: string
+          eu_compliance_data?: Json | null
+          id?: string
+          primary_language?: string
+          product_id: string
+          published_at?: string | null
+          status?: string
+          updated_at?: string
+          version?: number
+        }
+        Update: {
+          available_languages?: string[] | null
+          content?: Json
+          created_at?: string
+          eu_compliance_data?: Json | null
+          id?: string
+          primary_language?: string
+          product_id?: string
+          published_at?: string | null
+          status?: string
+          updated_at?: string
+          version?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "product_dpps_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      product_ingredients: {
+        Row: {
+          certifications: string[] | null
+          created_at: string
+          distance_km: number | null
+          id: string
+          is_organic: boolean | null
+          latitude: number | null
+          longitude: number | null
+          name: string
+          origin_city: string | null
+          origin_country: string | null
+          origin_region: string | null
+          percentage: number | null
+          product_id: string
+          supplier: string | null
+          transport_method: string | null
+        }
+        Insert: {
+          certifications?: string[] | null
+          created_at?: string
+          distance_km?: number | null
+          id?: string
+          is_organic?: boolean | null
+          latitude?: number | null
+          longitude?: number | null
+          name: string
+          origin_city?: string | null
+          origin_country?: string | null
+          origin_region?: string | null
+          percentage?: number | null
+          product_id: string
+          supplier?: string | null
+          transport_method?: string | null
+        }
+        Update: {
+          certifications?: string[] | null
+          created_at?: string
+          distance_km?: number | null
+          id?: string
+          is_organic?: boolean | null
+          latitude?: number | null
+          longitude?: number | null
+          name?: string
+          origin_city?: string | null
+          origin_country?: string | null
+          origin_region?: string | null
+          percentage?: number | null
+          product_id?: string
+          supplier?: string | null
+          transport_method?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "product_ingredients_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      product_lca: {
+        Row: {
+          calculation_method: string | null
+          co2e_manufacturing_kg: number | null
+          co2e_materials_kg: number | null
+          co2e_packaging_kg: number | null
+          co2e_total_kg: number | null
+          co2e_transport_kg: number | null
+          created_at: string
+          data_sources: Json | null
+          energy_consumption_kwh: number | null
+          id: string
+          product_id: string
+          recyclability_score: number | null
+          updated_at: string
+          water_footprint_l: number | null
+        }
+        Insert: {
+          calculation_method?: string | null
+          co2e_manufacturing_kg?: number | null
+          co2e_materials_kg?: number | null
+          co2e_packaging_kg?: number | null
+          co2e_total_kg?: number | null
+          co2e_transport_kg?: number | null
+          created_at?: string
+          data_sources?: Json | null
+          energy_consumption_kwh?: number | null
+          id?: string
+          product_id: string
+          recyclability_score?: number | null
+          updated_at?: string
+          water_footprint_l?: number | null
+        }
+        Update: {
+          calculation_method?: string | null
+          co2e_manufacturing_kg?: number | null
+          co2e_materials_kg?: number | null
+          co2e_packaging_kg?: number | null
+          co2e_total_kg?: number | null
+          co2e_transport_kg?: number | null
+          created_at?: string
+          data_sources?: Json | null
+          energy_consumption_kwh?: number | null
+          id?: string
+          product_id?: string
+          recyclability_score?: number | null
+          updated_at?: string
+          water_footprint_l?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "product_lca_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      product_nutrition: {
+        Row: {
+          additional_nutrients: Json | null
+          calories: number | null
+          carbs_g: number | null
+          created_at: string
+          fat_g: number | null
+          fiber_g: number | null
+          id: string
+          product_id: string
+          protein_g: number | null
+          serving_size: string | null
+          sodium_mg: number | null
+          sugar_g: number | null
+        }
+        Insert: {
+          additional_nutrients?: Json | null
+          calories?: number | null
+          carbs_g?: number | null
+          created_at?: string
+          fat_g?: number | null
+          fiber_g?: number | null
+          id?: string
+          product_id: string
+          protein_g?: number | null
+          serving_size?: string | null
+          sodium_mg?: number | null
+          sugar_g?: number | null
+        }
+        Update: {
+          additional_nutrients?: Json | null
+          calories?: number | null
+          carbs_g?: number | null
+          created_at?: string
+          fat_g?: number | null
+          fiber_g?: number | null
+          id?: string
+          product_id?: string
+          protein_g?: number | null
+          serving_size?: string | null
+          sodium_mg?: number | null
+          sugar_g?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "product_nutrition_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      products: {
+        Row: {
+          chat_data: Json | null
+          company_id: string
+          created_at: string
+          description: string | null
+          id: string
+          image_url: string | null
+          industry: string
+          name: string
+          slug: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          chat_data?: Json | null
+          company_id: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          industry: string
+          name: string
+          slug: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          chat_data?: Json | null
+          company_id?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          industry?: string
+          name?: string
+          slug?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "products_company_id_fkey"
+            columns: ["company_id"]
+            isOneToOne: false
+            referencedRelation: "companies"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      generate_slug: { Args: { input_text: string }; Returns: string }
     }
     Enums: {
       [_ in never]: never
