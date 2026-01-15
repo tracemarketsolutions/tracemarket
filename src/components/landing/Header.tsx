@@ -22,8 +22,11 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
+            <a href="#marketplace" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Marketplace
+            </a>
             <a href="#how-it-works" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              How It Works
+              For Businesses
             </a>
             <a href="#industries" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Industries
@@ -62,11 +65,18 @@ const Header = () => {
           <div className="lg:hidden py-4 border-t border-border/50 animate-fade-in">
             <nav className="flex flex-col gap-4">
               <a 
+                href="#marketplace" 
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Marketplace
+              </a>
+              <a 
                 href="#how-it-works" 
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                How It Works
+                For Businesses
               </a>
               <a 
                 href="#industries" 
