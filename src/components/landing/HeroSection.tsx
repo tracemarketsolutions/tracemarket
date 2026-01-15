@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Leaf, Shield, Globe, Link2 } from "lucide-react";
+import { ArrowRight, ShoppingBag, Building2, Leaf, Globe, Shield, Sparkles, MapPin, BarChart3 } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -13,103 +13,166 @@ const HeroSection = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Content */}
-          <div className="space-y-8 animate-slide-up">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
-              <Leaf className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium text-primary">
-                EU Digital Product Passport Ready
-              </span>
-            </div>
-
-            {/* Headline */}
-            <div className="space-y-4">
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                Transform Your Supply Chain Into{" "}
-                <span className="gradient-text">Transparency</span>
-              </h1>
-              <p className="text-lg lg:text-xl text-muted-foreground max-w-lg">
-                A decentralized database of immutable statements about products. 
-                Web3-powered transparency for quality verification, locality proof, 
-                and greenwashing prevention.
-              </p>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/chat">
-                <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground gap-2 shadow-lg shadow-primary/25">
-                  Start Free Assessment
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-              </Link>
-              <a 
-                href="https://package.trace.market/?tokenId=0x7ed749dc218f6015412158123097d6314cd9998f22903a5487d73f36d7045061#/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button size="lg" variant="outline" className="w-full sm:w-auto gap-2">
-                  <Link2 className="h-4 w-4" />
-                  View Demo DPP
-                </Button>
-              </a>
-            </div>
-
-            {/* Trust Badges */}
-            <div className="flex flex-wrap gap-6 pt-4">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Shield className="h-5 w-5 text-primary" />
-                <span>Blockchain Verified</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Globe className="h-5 w-5 text-primary" />
-                <span>Web3 Transparent</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Leaf className="h-5 w-5 text-primary" />
-                <span>NFT Ownership</span>
-              </div>
-            </div>
+        {/* Main headline - centered */}
+        <div className="text-center mb-12 animate-slide-up">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
+            <Leaf className="h-4 w-4 text-primary" />
+            <span className="text-sm font-medium text-primary">
+              EU Digital Product Passport Platform
+            </span>
           </div>
+          <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-4">
+            Transparency for <span className="gradient-text">Everyone</span>
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            A blockchain-powered platform connecting conscious consumers with transparent businesses
+          </p>
+        </div>
 
-          {/* Right Content - Live Blockchain DPP Embed */}
-          <div className="relative animate-fade-in flex justify-center" style={{ animationDelay: '0.3s' }}>
-            <div className="relative">
-              {/* Phone-like frame with live DPP */}
-              <div className="relative w-[260px] sm:w-[280px] h-[480px] sm:h-[520px] rounded-[2.5rem] overflow-hidden shadow-2xl shadow-primary/20 border-4 border-foreground/10 bg-card">
-                {/* Phone notch */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-foreground/10 rounded-b-xl z-10" />
-                
-                <iframe 
-                  src="https://package.trace.market/?tokenId=0x7ed749dc218f6015412158123097d6314cd9998f22903a5487d73f36d7045061#/"
-                  className="w-full h-full border-0"
-                  title="Digital Product Passport Demo"
-                  loading="lazy"
-                />
+        {/* Three-column layout */}
+        <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+          
+          {/* Left - For Consumers */}
+          <div className="bg-card/50 backdrop-blur-sm rounded-2xl border border-border/50 p-6 lg:p-8 space-y-6 animate-slide-up hover:border-primary/30 transition-colors">
+            <div className="flex items-center gap-3">
+              <div className="p-3 rounded-xl bg-primary/10">
+                <ShoppingBag className="h-6 w-6 text-primary" />
               </div>
-
-              {/* Floating stat badges */}
-              <div className="absolute -top-3 -left-6 sm:-left-12 bg-card rounded-xl shadow-lg p-3 border border-border/50 animate-float">
-                <span className="text-xs text-muted-foreground block">Carbon Footprint</span>
-                <p className="text-sm font-bold text-primary">0.19 kg CO₂e</p>
-              </div>
-              
-              <div className="absolute -bottom-3 -right-6 sm:-right-12 bg-card rounded-xl shadow-lg p-3 border border-border/50 animate-float" style={{ animationDelay: '1.5s' }}>
-                <span className="text-xs text-muted-foreground block">Water Usage</span>
-                <p className="text-sm font-bold text-info">369.95 L</p>
-              </div>
-
-              <div className="absolute top-1/2 -right-4 sm:-right-10 -translate-y-1/2 bg-card rounded-xl shadow-lg p-3 border border-border/50 animate-float" style={{ animationDelay: '0.75s' }}>
-                <span className="text-xs text-muted-foreground block">Recyclability</span>
-                <p className="text-sm font-bold text-accent">85%</p>
+              <div>
+                <p className="text-xs text-muted-foreground uppercase tracking-wider">Vásárlóknak</p>
+                <h2 className="text-xl font-bold text-foreground">Fedezd fel a termékeket</h2>
               </div>
             </div>
             
-            {/* Background glow effects */}
-            <div className="absolute -top-8 -right-8 w-32 h-32 bg-primary/10 rounded-full blur-3xl animate-pulse-soft" />
-            <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-accent/10 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: '1s' }} />
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              Böngéssz transzparens termékek között, ahol minden adat ellenőrzött és blokkláncon tárolt.
+            </p>
+
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3">
+                <MapPin className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                <span className="text-sm text-muted-foreground">Kövesd nyomon az összetevők útját a térképen</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <BarChart3 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                <span className="text-sm text-muted-foreground">Hasonlítsd össze a termékek ökológiai lábnyomát</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Shield className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                <span className="text-sm text-muted-foreground">Ellenőrzött, blokkláncon tárolt adatok</span>
+              </li>
+            </ul>
+
+            <Link to="/#marketplace" className="block">
+              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground gap-2">
+                Marketplace böngészése
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+
+          {/* Center - Live DPP Embed */}
+          <div className="relative flex justify-center items-center animate-fade-in order-first lg:order-none" style={{ animationDelay: '0.2s' }}>
+            <div className="relative">
+              {/* Phone frame */}
+              <div className="relative w-[220px] sm:w-[240px] h-[400px] sm:h-[440px] rounded-[2rem] overflow-hidden shadow-2xl shadow-primary/20 border-4 border-foreground/10 bg-card">
+                {/* Phone notch */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-5 bg-foreground/10 rounded-b-xl z-10" />
+                
+                {/* Iframe with zoom */}
+                <div className="w-full h-full overflow-hidden">
+                  <iframe 
+                    src="https://package.trace.market/?tokenId=0x7ed749dc218f6015412158123097d6314cd9998f22903a5487d73f36d7045061#/"
+                    className="border-0 origin-top-left"
+                    style={{
+                      width: '400px',
+                      height: '800px',
+                      transform: 'scale(0.55)',
+                      transformOrigin: 'top left',
+                    }}
+                    title="Digital Product Passport Demo"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              {/* Floating stat badges */}
+              <div className="absolute -top-2 -left-4 sm:-left-8 bg-card rounded-lg shadow-lg px-2.5 py-1.5 border border-border/50 animate-float">
+                <span className="text-[10px] text-muted-foreground block">CO₂e</span>
+                <p className="text-xs font-bold text-primary">0.19 kg</p>
+              </div>
+              
+              <div className="absolute -bottom-2 -right-4 sm:-right-8 bg-card rounded-lg shadow-lg px-2.5 py-1.5 border border-border/50 animate-float" style={{ animationDelay: '1s' }}>
+                <span className="text-[10px] text-muted-foreground block">Víz</span>
+                <p className="text-xs font-bold text-info">369 L</p>
+              </div>
+
+              <div className="absolute top-1/2 -right-3 sm:-right-6 -translate-y-1/2 bg-card rounded-lg shadow-lg px-2.5 py-1.5 border border-border/50 animate-float" style={{ animationDelay: '0.5s' }}>
+                <span className="text-[10px] text-muted-foreground block">♻️</span>
+                <p className="text-xs font-bold text-accent">85%</p>
+              </div>
+            </div>
+            
+            {/* Background glow */}
+            <div className="absolute inset-0 -z-10">
+              <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/10 rounded-full blur-3xl animate-pulse-soft" />
+              <div className="absolute bottom-1/4 right-1/4 w-24 h-24 bg-accent/10 rounded-full blur-3xl animate-pulse-soft" style={{ animationDelay: '1s' }} />
+            </div>
+          </div>
+
+          {/* Right - For Businesses */}
+          <div className="bg-card/50 backdrop-blur-sm rounded-2xl border border-border/50 p-6 lg:p-8 space-y-6 animate-slide-up hover:border-accent/30 transition-colors" style={{ animationDelay: '0.1s' }}>
+            <div className="flex items-center gap-3">
+              <div className="p-3 rounded-xl bg-accent/10">
+                <Building2 className="h-6 w-6 text-accent" />
+              </div>
+              <div>
+                <p className="text-xs text-muted-foreground uppercase tracking-wider">Cégeknek</p>
+                <h2 className="text-xl font-bold text-foreground">Készítsd el a DPP-d</h2>
+              </div>
+            </div>
+            
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              AI-alapú eszközünkkel egyszerűen készíthetsz EU ESPR-kompatibilis Digitális Termék Útlevelet.
+            </p>
+
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3">
+                <Sparkles className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
+                <span className="text-sm text-muted-foreground">AI-asszisztens az adatgyűjtéshez</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <BarChart3 className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
+                <span className="text-sm text-muted-foreground">Automatikus LCA kalkuláció</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Globe className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
+                <span className="text-sm text-muted-foreground">Blokkláncon publikált, egyedi URL</span>
+              </li>
+            </ul>
+
+            <Link to="/chat" className="block">
+              <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground gap-2">
+                DPP létrehozása
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+
+        {/* Trust badges - centered below */}
+        <div className="flex flex-wrap justify-center gap-6 mt-12 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <Shield className="h-5 w-5 text-primary" />
+            <span>Blockchain Verified</span>
+          </div>
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <Globe className="h-5 w-5 text-primary" />
+            <span>Web3 Transparent</span>
+          </div>
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <Leaf className="h-5 w-5 text-primary" />
+            <span>EU ESPR Ready</span>
           </div>
         </div>
       </div>
