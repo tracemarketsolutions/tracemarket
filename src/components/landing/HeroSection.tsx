@@ -39,33 +39,33 @@ const HeroSection = () => {
                 <ShoppingBag className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <p className="text-xs text-muted-foreground uppercase tracking-wider">Vásárlóknak</p>
-                <h2 className="text-xl font-bold text-foreground">Fedezd fel a termékeket</h2>
+                <p className="text-xs text-muted-foreground uppercase tracking-wider">For Consumers</p>
+                <h2 className="text-xl font-bold text-foreground">Discover Products</h2>
               </div>
             </div>
             
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Böngéssz transzparens termékek között, ahol minden adat ellenőrzött és blokkláncon tárolt.
+              Browse transparent products where all data is verified and stored on the blockchain.
             </p>
 
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <MapPin className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground">Kövesd nyomon az összetevők útját a térképen</span>
+                <span className="text-sm text-muted-foreground">Trace ingredient origins on an interactive map</span>
               </li>
               <li className="flex items-start gap-3">
                 <BarChart3 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground">Hasonlítsd össze a termékek ökológiai lábnyomát</span>
+                <span className="text-sm text-muted-foreground">Compare ecological footprints across products</span>
               </li>
               <li className="flex items-start gap-3">
                 <Shield className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground">Ellenőrzött, blokkláncon tárolt adatok</span>
+                <span className="text-sm text-muted-foreground">Verified, blockchain-secured data</span>
               </li>
             </ul>
 
             <Link to="/#marketplace" className="block">
               <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground gap-2">
-                Marketplace böngészése
+                Browse Marketplace
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
@@ -103,7 +103,7 @@ const HeroSection = () => {
               </div>
               
               <div className="absolute -bottom-2 -right-4 sm:-right-8 bg-card rounded-lg shadow-lg px-2.5 py-1.5 border border-border/50 animate-float" style={{ animationDelay: '1s' }}>
-                <span className="text-[10px] text-muted-foreground block">Víz</span>
+                <span className="text-[10px] text-muted-foreground block">Water</span>
                 <p className="text-xs font-bold text-info">369 L</p>
               </div>
 
@@ -127,33 +127,33 @@ const HeroSection = () => {
                 <Building2 className="h-6 w-6 text-accent" />
               </div>
               <div>
-                <p className="text-xs text-muted-foreground uppercase tracking-wider">Cégeknek</p>
-                <h2 className="text-xl font-bold text-foreground">Készítsd el a DPP-d</h2>
+                <p className="text-xs text-muted-foreground uppercase tracking-wider">For Businesses</p>
+                <h2 className="text-xl font-bold text-foreground">Create Your DPP</h2>
               </div>
             </div>
             
             <p className="text-muted-foreground text-sm leading-relaxed">
-              AI-alapú eszközünkkel egyszerűen készíthetsz EU ESPR-kompatibilis Digitális Termék Útlevelet.
+              Use our AI-powered tool to easily create EU ESPR-compliant Digital Product Passports.
             </p>
 
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <Sparkles className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground">AI-asszisztens az adatgyűjtéshez</span>
+                <span className="text-sm text-muted-foreground">AI assistant for data collection</span>
               </li>
               <li className="flex items-start gap-3">
                 <BarChart3 className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground">Automatikus LCA kalkuláció</span>
+                <span className="text-sm text-muted-foreground">Automatic LCA calculation</span>
               </li>
               <li className="flex items-start gap-3">
                 <Globe className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground">Blokkláncon publikált, egyedi URL</span>
+                <span className="text-sm text-muted-foreground">Blockchain-published unique URL</span>
               </li>
             </ul>
 
             <Link to="/chat" className="block">
               <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground gap-2">
-                DPP létrehozása
+                Create DPP
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
