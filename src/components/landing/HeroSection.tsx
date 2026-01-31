@@ -128,32 +128,32 @@ const HeroSection = () => {
               </div>
               <div>
                 <p className="text-xs text-muted-foreground uppercase tracking-wider">For Businesses</p>
-                <h2 className="text-xl font-bold text-foreground">Create Your DPP</h2>
+                <h2 className="text-xl font-bold text-foreground">Prove or Improve</h2>
               </div>
             </div>
             
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              Use our AI-powered tool to easily create EU ESPR-compliant Digital Product Passports.
-            </p>
+            {/* Two options */}
+            <div className="space-y-3">
+              <div className="p-3 rounded-lg bg-accent/5 border border-accent/20">
+                <p className="text-sm font-semibold text-accent mb-1">✓ Prove Your Sustainability</p>
+                <p className="text-xs text-muted-foreground">Already sustainable? Get blockchain-verified proof.</p>
+              </div>
+              <div className="p-3 rounded-lg bg-primary/5 border border-primary/20">
+                <p className="text-sm font-semibold text-primary mb-1">↗ Improve Your Impact</p>
+                <p className="text-xs text-muted-foreground">Identify where to reduce your footprint.</p>
+              </div>
+            </div>
 
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3">
-                <Sparkles className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground">AI assistant for data collection</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <BarChart3 className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground">Automatic LCA calculation</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Globe className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground">Blockchain-published unique URL</span>
-              </li>
-            </ul>
+            <div className="space-y-2">
+              <p className="text-sm font-medium text-foreground">Create Your DPP</p>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                <span className="font-medium text-foreground">Digital Product Passport</span> — Your product's complete environmental story in one scannable link.
+              </p>
+            </div>
 
             <Link to="/chat" className="block">
               <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground gap-2">
-                Create DPP
+                Create DPP Free
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
