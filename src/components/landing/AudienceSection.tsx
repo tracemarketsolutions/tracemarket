@@ -88,34 +88,51 @@ const AudienceSection = () => {
             <h3 className="font-display text-2xl lg:text-3xl font-bold text-foreground mb-3">
               For Businesses
             </h3>
-            <p className="text-lg text-muted-foreground mb-6">
-              Create EU-compliant Digital Product Passports through AI-powered conversations.
+            <p className="text-lg text-muted-foreground mb-4">
+              Prove or improve your sustainability with blockchain-verified data.
             </p>
+
+            {/* Two paths */}
+            <div className="grid grid-cols-2 gap-3 mb-6">
+              <div className="p-3 rounded-lg bg-accent/10 border border-accent/20 text-center">
+                <p className="text-xs font-semibold text-accent">Prove It</p>
+                <p className="text-[10px] text-muted-foreground mt-1">Verify your claims</p>
+              </div>
+              <div className="p-3 rounded-lg bg-primary/10 border border-primary/20 text-center">
+                <p className="text-xs font-semibold text-primary">Improve It</p>
+                <p className="text-[10px] text-muted-foreground mt-1">Find opportunities</p>
+              </div>
+            </div>
 
             {/* Features */}
             <ul className="space-y-4 mb-8">
               <li className="flex items-start gap-3">
                 <MessageSquare className="h-5 w-5 text-primary mt-0.5 shrink-0" />
-                <span className="text-muted-foreground">AI-powered data collection through conversation</span>
+                <div>
+                  <span className="text-foreground font-medium">AI-powered data collection</span>
+                  <p className="text-xs text-muted-foreground">Chat naturally, we extract the data</p>
+                </div>
               </li>
               <li className="flex items-start gap-3">
                 <BarChart3 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
-                <span className="text-muted-foreground">Automatic LCA calculation using open-source emission factors</span>
+                <div>
+                  <span className="text-foreground font-medium">Automatic LCA calculation</span>
+                  <p className="text-xs text-muted-foreground">Life-Cycle Assessment = your product's total environmental footprint</p>
+                </div>
               </li>
               <li className="flex items-start gap-3">
                 <FileCheck className="h-5 w-5 text-primary mt-0.5 shrink-0" />
-                <span className="text-muted-foreground">EU ESPR-compliant DPP generation</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Globe className="h-5 w-5 text-primary mt-0.5 shrink-0" />
-                <span className="text-muted-foreground">Unique blockchain URL for each product</span>
+                <div>
+                  <span className="text-foreground font-medium">EU-compliant DPP</span>
+                  <p className="text-xs text-muted-foreground">Digital Product Passport = your product's complete story in one link</p>
+                </div>
               </li>
             </ul>
 
             {/* CTA */}
             <Link to="/chat">
               <Button className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2">
-                Start Assessment
+                Create Your DPP Free
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>

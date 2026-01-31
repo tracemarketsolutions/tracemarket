@@ -1,32 +1,45 @@
-import { MessageSquare, BarChart3, FileText, QrCode, ArrowDown } from "lucide-react";
+import { MessageSquare, BarChart3, FileText, QrCode, ArrowDown, HelpCircle } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const steps = [
   {
     number: "01",
     icon: MessageSquare,
     title: "Chat with AI",
-    description: "Share your production and supply chain data through our conversational AI. Upload PDFs, describe your processes, or import from spreadsheets.",
+    description: "Tell us about your product through simple conversation.",
+    details: "Share your production and supply chain data through our conversational AI. Upload PDFs, describe your processes, or import from spreadsheets.",
     color: "primary",
   },
   {
     number: "02",
     icon: BarChart3,
-    title: "Generate LCA",
-    description: "We calculate your Life-Cycle Assessment using open-source emission factors, validated by AI to ensure accuracy across all impact categories.",
+    title: "Get Your LCA",
+    description: "We calculate your product's environmental footprint.",
+    details: "Life-Cycle Assessment (LCA) measures your product's environmental impact from raw materials to disposal — including CO₂, water, and energy use.",
+    tooltip: "LCA = Life-Cycle Assessment: A scientific method to measure the total environmental impact of a product throughout its entire lifecycle.",
     color: "accent",
   },
   {
     number: "03",
     icon: FileText,
-    title: "Create EPD",
-    description: "Receive your Environmental Product Declaration following ISO 14025 standards. Download as PDF in English plus your preferred language.",
+    title: "Receive EPD",
+    description: "Get your certified environmental report.",
+    details: "Environmental Product Declaration (EPD) is a standardized document following ISO 14025 that communicates your product's environmental performance.",
+    tooltip: "EPD = Environmental Product Declaration: An official, ISO-certified document summarizing your LCA results.",
     color: "info",
   },
   {
     number: "04",
     icon: QrCode,
     title: "Publish DPP",
-    description: "Get your embeddable Digital Product Passport with interactive maps, detailed traceability, and multi-language support for global reach.",
+    description: "Share your transparency with the world.",
+    details: "Your Digital Product Passport (DPP) is a scannable, interactive page showing your complete supply chain with maps, metrics, and verified data.",
+    tooltip: "DPP = Digital Product Passport: An interactive, blockchain-verified page that consumers can scan to see everything about your product.",
     color: "success",
   },
 ];
@@ -40,8 +53,11 @@ const HowItWorksSection = () => {
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             From Data to <span className="gradient-text">Digital Passport</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Four simple steps to transform your supply chain transparency and build consumer trust.
+          <p className="text-lg text-muted-foreground mb-2">
+            Four simple steps to transform your supply chain transparency.
+          </p>
+          <p className="text-sm text-muted-foreground/80">
+            No technical knowledge required — our AI guides you through everything.
           </p>
         </div>
 
@@ -61,17 +77,36 @@ const HowItWorksSection = () => {
                   <span className="text-4xl font-display font-bold text-primary/20">
                     {step.number}
                   </span>
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <step.icon className="h-6 w-6 text-primary" />
+                  <div className="flex items-center gap-2">
+                    {step.tooltip && (
+                      <TooltipProvider>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <button className="p-1 rounded-full hover:bg-muted transition-colors">
+                              <HelpCircle className="h-4 w-4 text-muted-foreground" />
+                            </button>
+                          </TooltipTrigger>
+                          <TooltipContent className="max-w-xs">
+                            <p className="text-sm">{step.tooltip}</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
+                    )}
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                      <step.icon className="h-6 w-6 text-primary" />
+                    </div>
                   </div>
                 </div>
 
                 {/* Content */}
-                <h3 className="font-display text-xl font-semibold text-foreground mb-3">
+                <h3 className="font-display text-xl font-semibold text-foreground mb-2">
                   {step.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-foreground font-medium text-sm mb-2">
                   {step.description}
+                </p>
+                <p className="text-muted-foreground text-xs leading-relaxed">
+                  {step.details}
                 </p>
               </div>
 

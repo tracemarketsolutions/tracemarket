@@ -5,12 +5,13 @@ import MarketplacePreviewSection from "@/components/landing/MarketplacePreviewSe
 import EcosystemSection from "@/components/landing/EcosystemSection";
 import HowItWorksSection from "@/components/landing/HowItWorksSection";
 import IndustriesSection from "@/components/landing/IndustriesSection";
+import PitchSection from "@/components/landing/PitchSection";
 import PricingSection from "@/components/landing/PricingSection";
 import Footer from "@/components/landing/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background scroll-smooth">
       <Header />
       <main>
         <HeroSection />
@@ -19,6 +20,7 @@ const Index = () => {
         <EcosystemSection />
         <HowItWorksSection />
         <IndustriesSection />
+        <PitchSection />
         <PricingSection />
       </main>
       <Footer />

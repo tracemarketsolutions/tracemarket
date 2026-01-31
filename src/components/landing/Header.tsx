@@ -1,11 +1,35 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import traceMarketLogo from "@/assets/tracemarket-logo.png";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const scrollToSection = useCallback((e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const headerOffset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+    setMobileMenuOpen(false);
+  }, []);
+
+  const navLinks = [
+    { href: "marketplace", label: "Marketplace" },
+    { href: "ecosystem", label: "Ecosystem" },
+    { href: "how-it-works", label: "For Businesses" },
+    { href: "pitch", label: "Our Mission" },
+    { href: "pricing", label: "Pricing" },
+  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
@@ -22,18 +46,16 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
-            <a href="#marketplace" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              Marketplace
-            </a>
-            <a href="#how-it-works" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              For Businesses
-            </a>
-            <a href="#industries" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              Industries
-            </a>
-            <a href="#pricing" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              Pricing
-            </a>
+            {navLinks.map((link) => (
+              <a 
+                key={link.href}
+                href={`#${link.href}`} 
+                onClick={(e) => scrollToSection(e, link.href)}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
           </nav>
 
           {/* Desktop CTA */}
@@ -64,34 +86,16 @@ const Header = () => {
         {mobileMenuOpen && (
           <div className="lg:hidden py-4 border-t border-border/50 animate-fade-in">
             <nav className="flex flex-col gap-4">
-              <a 
-                href="#marketplace" 
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Marketplace
-              </a>
-              <a 
-                href="#how-it-works" 
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                For Businesses
-              </a>
-              <a 
-                href="#industries" 
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Industries
-              </a>
-              <a 
-                href="#pricing" 
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Pricing
-              </a>
+              {navLinks.map((link) => (
+                <a 
+                  key={link.href}
+                  href={`#${link.href}`} 
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={(e) => scrollToSection(e, link.href)}
+                >
+                  {link.label}
+                </a>
+              ))}
               <div className="flex flex-col gap-2 pt-4 border-t border-border/50">
                 <Link to="/auth" onClick={() => setMobileMenuOpen(false)}>
                   <Button variant="ghost" className="w-full justify-start">
