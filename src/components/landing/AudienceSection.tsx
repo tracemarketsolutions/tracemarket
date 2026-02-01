@@ -66,7 +66,7 @@ const AudienceSection = () => {
             </ul>
 
             {/* CTA */}
-            <a href="#marketplace">
+            <a href="https://browse.trace.market/" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" className="group-hover:bg-info group-hover:text-info-foreground group-hover:border-info transition-colors gap-2">
                 Browse Marketplace
                 <ArrowRight className="h-4 w-4" />
@@ -89,7 +89,7 @@ const AudienceSection = () => {
               For Businesses
             </h3>
             <p className="text-lg text-muted-foreground mb-4">
-              Prove or improve your sustainability with blockchain-verified data.
+              Prove or improve your values with blockchain-verified data.
             </p>
 
             {/* Two paths */}

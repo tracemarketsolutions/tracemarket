@@ -63,12 +63,12 @@ const HeroSection = () => {
               </li>
             </ul>
 
-            <Link to="/#marketplace" className="block">
+            <a href="https://browse.trace.market/" target="_blank" rel="noopener noreferrer" className="block">
               <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground gap-2">
                 Browse Marketplace
                 <ArrowRight className="h-4 w-4" />
               </Button>
-            </Link>
+            </a>
           </div>
 
           {/* Center - Live DPP Embed */}
@@ -96,15 +96,15 @@ const HeroSection = () => {
                 </div>
               </div>
 
-              {/* Floating stat badges */}
+              {/* Floating stat badges - matching real DPP values */}
               <div className="absolute -top-2 -left-4 sm:-left-8 bg-card rounded-lg shadow-lg px-2.5 py-1.5 border border-border/50 animate-float">
                 <span className="text-[10px] text-muted-foreground block">CO₂e</span>
-                <p className="text-xs font-bold text-primary">0.19 kg</p>
+                <p className="text-xs font-bold text-primary">0.15 kg</p>
               </div>
               
               <div className="absolute -bottom-2 -right-4 sm:-right-8 bg-card rounded-lg shadow-lg px-2.5 py-1.5 border border-border/50 animate-float" style={{ animationDelay: '1s' }}>
                 <span className="text-[10px] text-muted-foreground block">Water</span>
-                <p className="text-xs font-bold text-info">369 L</p>
+                <p className="text-xs font-bold text-info">284.60 L</p>
               </div>
 
               <div className="absolute top-1/2 -right-3 sm:-right-6 -translate-y-1/2 bg-card rounded-lg shadow-lg px-2.5 py-1.5 border border-border/50 animate-float" style={{ animationDelay: '0.5s' }}>
@@ -135,7 +135,7 @@ const HeroSection = () => {
             {/* Two options */}
             <div className="space-y-3">
               <div className="p-3 rounded-lg bg-accent/5 border border-accent/20">
-                <p className="text-sm font-semibold text-accent mb-1">✓ Prove Your Sustainability</p>
+                <p className="text-sm font-semibold text-accent mb-1">✓ Prove Your Values</p>
                 <p className="text-xs text-muted-foreground">Already sustainable? Get blockchain-verified proof.</p>
               </div>
               <div className="p-3 rounded-lg bg-primary/5 border border-primary/20">

@@ -35,7 +35,7 @@ const SolutionSlide = ({ slideNumber, totalSlides }: SolutionSlideProps) => {
               </div>
             </div>
             <p className="text-xs text-muted-foreground mb-3">
-              Makes supply chains visible. Helps companies see their processes, measure impact, prove sustainability.
+              Makes supply chains visible. Helps companies see their processes, measure impact, prove their values.
             </p>
             <ul className="space-y-1.5">
               {[
