@@ -180,12 +180,14 @@ const MarketplacePreviewSection = () => {
 
         {/* CTA */}
         <div className="text-center">
-          <Button variant="outline" size="lg" className="gap-2" disabled>
-            View Full Marketplace
-            <ArrowRight className="h-4 w-4" />
-          </Button>
+          <a href="https://browse.trace.market/" target="_blank" rel="noopener noreferrer">
+            <Button variant="outline" size="lg" className="gap-2">
+              View Full Marketplace
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          </a>
           <p className="text-sm text-muted-foreground mt-3">
-            Full marketplace coming soon
+            Browse our growing collection of transparent products
           </p>
         </div>
       </div>

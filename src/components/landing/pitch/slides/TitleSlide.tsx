@@ -1,5 +1,7 @@
 import { Target } from "lucide-react";
 import traceMarketLogo from "@/assets/tracemarket-logo.png";
+import circoolerLogo from "@/assets/circooler-logo.png";
+import bevisioneersLogo from "@/assets/bevisioneers-logo.png";
 
 interface TitleSlideProps {
   slideNumber: number;
@@ -15,9 +17,13 @@ const TitleSlide = ({ slideNumber, totalSlides }: TitleSlideProps) => {
         <div className="absolute bottom-20 right-20 w-48 h-48 rounded-full bg-accent blur-3xl" />
       </div>
 
-      {/* Logo & Slide Number */}
+      {/* Logos & Slide Number */}
       <div className="flex items-center justify-between mb-auto relative z-10">
-        <img src={traceMarketLogo} alt="Trace.Market" className="h-8 md:h-10" />
+        <div className="flex items-center gap-3">
+          <img src={traceMarketLogo} alt="Trace.Market" className="h-8 md:h-10" />
+          <div className="w-px h-8 bg-border/50" />
+          <img src={circoolerLogo} alt="Circooler.Solutions" className="h-6 md:h-8" />
+        </div>
         <span className="text-sm text-muted-foreground font-medium">
           {slideNumber} / {totalSlides}
         </span>
@@ -40,8 +46,13 @@ const TitleSlide = ({ slideNumber, totalSlides }: TitleSlideProps) => {
       </div>
 
       {/* Footer */}
-      <div className="text-center relative z-10 mt-auto pt-4">
+      <div className="flex items-center justify-between relative z-10 mt-auto pt-4">
         <p className="text-sm text-muted-foreground">February 2026 | BeVisioneers Fellowship</p>
+        <img 
+          src={bevisioneersLogo} 
+          alt="BeVisioneers - The Mercedes-Benz Fellowship" 
+          className="h-6 md:h-8 opacity-70"
+        />
       </div>
     </div>
   );

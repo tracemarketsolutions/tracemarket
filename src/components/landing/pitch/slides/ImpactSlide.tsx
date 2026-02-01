@@ -1,4 +1,4 @@
-import { Recycle, TrendingUp, Droplets, Zap, Utensils, AlertCircle } from "lucide-react";
+import { Recycle, TrendingUp, Droplets, Zap, AlertCircle } from "lucide-react";
 import PitchSlide from "../PitchSlide";
 
 interface ImpactSlideProps {
@@ -7,13 +7,11 @@ interface ImpactSlideProps {
 }
 
 const ImpactSlide = ({ slideNumber, totalSlides }: ImpactSlideProps) => {
-  // Based on the spreadsheet data for 2,200kg saved:
-  // Water: ~191,000L (based on ratio from table)
-  // Carbon: ~2,389kg CO2 (based on ratio from table)
-  // Energy: ~1,433kWh (based on ratio from table)
+  // Based on the actual data for 2,200kg saved:
+  // Using the ratio from the impact calculation table provided
   const currentImpact = [
     { icon: Recycle, value: "2,200kg", label: "Food waste diverted", sublabel: "Total saved to date" },
-    { icon: Droplets, value: "191,000L", label: "Water saved", sublabel: "Based on food production footprint" },
+    { icon: Droplets, value: "190,828L", label: "Water saved", sublabel: "Based on food production footprint" },
     { icon: TrendingUp, value: "2,389kg", label: "CO₂ avoided", sublabel: "Carbon footprint reduced" },
     { icon: Zap, value: "1,433kWh", label: "Energy saved", sublabel: "Resource efficiency" },
   ];
@@ -70,6 +68,14 @@ const ImpactSlide = ({ slideNumber, totalSlides }: ImpactSlideProps) => {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Opportunity Scale */}
+        <div className="bg-info/10 rounded-lg p-3 border border-info/20">
+          <p className="text-xs text-foreground text-center">
+            <strong className="text-primary">390,000 kg/year</strong> of food loss identified from just 3 sources: 
+            Plantsoul.hu (nut-cream byproducts) + MATE Elvira Major (fruit research) + Nagybani piac (daily produce loss)
+          </p>
         </div>
 
         {/* Risks */}

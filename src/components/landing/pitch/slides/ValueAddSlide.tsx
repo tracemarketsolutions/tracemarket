@@ -14,7 +14,7 @@ const ValueAddSlide = ({ slideNumber, totalSlides }: ValueAddSlideProps) => {
       color: "text-primary",
       bgColor: "bg-primary/10",
       benefits: [
-        "Prove impact with immutable data",
+        "Prove values with immutable data",
         "Fair pricing through transparency",
         "EU DPP compliance (2027)",
         "Transform waste to revenue",
