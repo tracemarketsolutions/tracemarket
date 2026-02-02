@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import traceMarketLogo from "@/assets/tracemarket-logo.png";
-import circoolerLogo from "@/assets/circooler-logo.png";
+import circoolerLogo from "@/assets/circooler-logo-new.png";
 import bevisioneersLogo from "@/assets/bevisioneers-logo.png";
 
 interface PitchSlideProps {
@@ -29,42 +29,44 @@ const PitchSlide = ({
 
   return (
     <div
-      className={`flex-shrink-0 w-[90vw] md:w-[85vw] lg:w-[80vw] max-w-5xl h-[600px] md:h-[700px] rounded-2xl border ${variantStyles[variant]} p-6 md:p-10 flex flex-col snap-center relative overflow-hidden`}
+      className={`flex-shrink-0 w-[90vw] md:w-[85vw] lg:w-[80vw] max-w-5xl aspect-video rounded-2xl border ${variantStyles[variant]} p-4 md:p-6 lg:p-8 flex flex-col snap-center relative overflow-hidden`}
     >
-      {/* Logos & Slide Number */}
-      <div className="flex items-center justify-between mb-6">
-        <div className="flex items-center gap-3">
-          <img src={traceMarketLogo} alt="Trace.Market" className="h-6 md:h-8" />
-          <div className="w-px h-6 bg-border/50" />
-          <img src={circoolerLogo} alt="Circooler.Solutions" className="h-5 md:h-6" />
+      {/* Header Row - Logos */}
+      <div className="flex items-center justify-between mb-3 md:mb-4">
+        <div className="flex items-center gap-2 md:gap-3">
+          <img src={traceMarketLogo} alt="Trace.Market" className="h-5 md:h-7" />
+          <div className="w-px h-5 md:h-6 bg-border/50" />
+          <img src={circoolerLogo} alt="Circooler.Solutions" className="h-5 md:h-7" />
         </div>
-        <span className="text-sm text-muted-foreground font-medium">
-          {slideNumber} / {totalSlides}
-        </span>
+        
+        {/* BeVisioneers Logo - Top Right */}
+        <img 
+          src={bevisioneersLogo} 
+          alt="BeVisioneers - The Mercedes-Benz Fellowship" 
+          className="h-5 md:h-7"
+        />
       </div>
 
       {/* Title Section */}
       {title && (
-        <div className="mb-6">
-          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground">
+        <div className="mb-2 md:mb-3">
+          <h2 className="font-display text-lg md:text-2xl lg:text-3xl font-bold text-foreground">
             {title}
           </h2>
           {subtitle && (
-            <p className="text-muted-foreground text-lg mt-2">{subtitle}</p>
+            <p className="text-muted-foreground text-sm md:text-base mt-1">{subtitle}</p>
           )}
         </div>
       )}
 
-      {/* Content */}
-      <div className="flex-1 overflow-y-auto pr-2">{children}</div>
+      {/* Content - No scrolling */}
+      <div className="flex-1 overflow-hidden">{children}</div>
 
-      {/* BeVisioneers Logo - Bottom Right */}
-      <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6">
-        <img 
-          src={bevisioneersLogo} 
-          alt="BeVisioneers - The Mercedes-Benz Fellowship" 
-          className="h-6 md:h-8 opacity-70"
-        />
+      {/* Slide Number - Bottom Right */}
+      <div className="absolute bottom-3 right-4 md:bottom-4 md:right-6">
+        <span className="text-xs md:text-sm text-muted-foreground font-medium bg-background/80 px-2 py-1 rounded">
+          {slideNumber} / {totalSlides}
+        </span>
       </div>
     </div>
   );

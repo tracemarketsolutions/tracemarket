@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ShoppingBag, Building2, Leaf, Globe, Shield, Sparkles, MapPin, BarChart3 } from "lucide-react";
+import { ArrowRight, ShoppingBag, Building2, Leaf, Globe, Shield, MapPin, BarChart3 } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -25,7 +25,7 @@ const HeroSection = () => {
             Transparency for <span className="gradient-text">Everyone</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A blockchain-powered platform connecting conscious consumers with transparent businesses
+            Connecting conscious consumers with transparent businesses
           </p>
         </div>
 
@@ -147,7 +147,7 @@ const HeroSection = () => {
             <div className="space-y-2">
               <p className="text-sm font-medium text-foreground">Create Your DPP</p>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                <span className="font-medium text-foreground">Digital Product Passport</span> — Your product's complete environmental story in one scannable link.
+                <span className="font-medium text-foreground">Digital Product Passport</span> - Your product's complete environmental story in one scannable link.
               </p>
             </div>
 
@@ -164,7 +164,7 @@ const HeroSection = () => {
         <div className="flex flex-wrap justify-center gap-6 mt-12 animate-fade-in" style={{ animationDelay: '0.4s' }}>
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Shield className="h-5 w-5 text-primary" />
-            <span>Blockchain Verified</span>
+            <span>Swarm Blockchain Verified</span>
           </div>
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Globe className="h-5 w-5 text-primary" />

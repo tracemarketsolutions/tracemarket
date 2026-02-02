@@ -1,4 +1,4 @@
-import { AlertTriangle, Users, ShoppingCart, Building2, Leaf } from "lucide-react";
+import { AlertTriangle, Eye, Users, ShoppingBag, Building2, Landmark, Leaf, TrendingUp } from "lucide-react";
 import PitchSlide from "../PitchSlide";
 
 interface ProblemSlideProps {
@@ -7,65 +7,84 @@ interface ProblemSlideProps {
 }
 
 const ProblemSlide = ({ slideNumber, totalSlides }: ProblemSlideProps) => {
-  const problemStats = [
-    { value: "€143B", label: "Products wasted yearly due to lack of traceability" },
-    { value: "78%", label: "Consumers want sustainability data" },
-    { value: "23%", label: "Actually trust current product labels" },
+  const stats = [
+    { value: "828M", label: "People face hunger", icon: Users },
+    { value: "1.3B", label: "Tons food wasted/year", icon: AlertTriangle },
+    { value: "78%", label: "Want sustainability data", icon: Eye },
+    { value: "23%", label: "Trust current labels", icon: TrendingUp },
   ];
 
-  const affectedGroups = [
-    { icon: Building2, group: "Producers", issue: "Sustainable practices go unrecognized" },
-    { icon: ShoppingCart, group: "Consumers", issue: "Make decisions based on marketing, not reality" },
-    { icon: Users, group: "Communities", issue: "Remain trapped in extractive relationships" },
-    { icon: Leaf, group: "Environment", issue: "Bears cost while solutions remain disconnected" },
+  const audiences = [
+    { icon: Building2, label: "Sustainable Producers", desc: "Fighting for recognition" },
+    { icon: ShoppingBag, label: "Conscious Consumers", desc: "Demanding transparency" },
+    { icon: Leaf, label: "Circular Businesses", desc: "Seeking connections" },
+    { icon: Landmark, label: "Impact Investors", desc: "Requiring proof" },
   ];
 
   return (
     <PitchSlide
       slideNumber={slideNumber}
       totalSlides={totalSlides}
-      title="The Problem"
-      subtitle="Systemic Inequality Through Opacity"
-      variant="default"
+      title="The Problem: Systemic Inequality Through Opacity"
+      subtitle="Target Audiences & Stakeholders"
+      variant="accent"
     >
-      <div className="space-y-6">
-        {/* Problem Statement */}
-        <p className="text-muted-foreground">
-          Modern supply chains aren't just opaque—they're designed to hide inequality. When consumers can't see how products are made, exploitation becomes invisible.
-        </p>
+      <div className="grid md:grid-cols-2 gap-3 h-full">
+        {/* Left - Problem Description */}
+        <div className="space-y-2">
+          <div className="bg-card rounded-lg p-2 border border-border/50">
+            <p className="text-xs text-foreground leading-relaxed">
+              Modern supply chains aren't just opaque - they're designed to hide inequality. When consumers can't see how products are made, <strong className="text-destructive">exploitation becomes invisible</strong>. When businesses can't trace waste streams, <strong className="text-accent">circular opportunities disappear</strong>.
+            </p>
+          </div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-3 gap-3">
-          {problemStats.map((stat) => (
-            <div key={stat.label} className="bg-destructive/5 border border-destructive/20 rounded-lg p-3 text-center">
-              <AlertTriangle className="h-5 w-5 text-destructive mx-auto mb-1" />
-              <p className="text-xl md:text-2xl font-display font-bold text-foreground">{stat.value}</p>
-              <p className="text-xs text-muted-foreground">{stat.label}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Affected Groups */}
-        <div className="grid grid-cols-2 gap-3">
-          {affectedGroups.map((item) => (
-            <div key={item.group} className="flex items-start gap-2 bg-secondary/50 rounded-lg p-3">
-              <item.icon className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-              <div>
-                <p className="font-semibold text-foreground text-sm">{item.group}</p>
-                <p className="text-xs text-muted-foreground">{item.issue}</p>
+          {/* Stats Grid */}
+          <div className="grid grid-cols-2 gap-1.5">
+            {stats.map((stat) => (
+              <div key={stat.label} className="bg-card rounded-lg p-1.5 border border-border/50 text-center">
+                <stat.icon className="h-3 w-3 text-primary mx-auto mb-0.5" />
+                <p className="text-base font-bold text-foreground">{stat.value}</p>
+                <p className="text-[9px] text-muted-foreground leading-tight">{stat.label}</p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* Key Message */}
+          <div className="bg-destructive/10 rounded-lg p-2 border border-destructive/20">
+            <p className="text-xs text-foreground text-center">
+              <strong>€143 billion</strong> in products wasted annually due to lack of traceability
+            </p>
+          </div>
         </div>
 
-        {/* Crisis Points */}
-        <div className="bg-card border border-border rounded-lg p-4">
-          <h4 className="font-semibold text-foreground mb-2 text-sm">The Interconnected Crisis:</h4>
-          <ul className="space-y-1 text-xs text-muted-foreground">
-            <li>• 828 million people face hunger while 1.3 billion tons of food is wasted annually</li>
-            <li>• Communities lack resources while valuable byproducts are discarded</li>
-            <li>• Consumers demand sustainability but can't verify claims</li>
-          </ul>
+        {/* Right - Target Audiences */}
+        <div className="space-y-2">
+          <h4 className="font-semibold text-foreground text-xs">Who We Serve:</h4>
+          
+          <div className="grid grid-cols-2 gap-1.5">
+            {audiences.map((audience) => (
+              <div key={audience.label} className="bg-card rounded-lg p-2 border border-border/50">
+                <div className="flex items-center gap-1.5 mb-0.5">
+                  <div className="p-1 rounded-full bg-primary/10">
+                    <audience.icon className="h-2.5 w-2.5 text-primary" />
+                  </div>
+                  <p className="font-medium text-foreground text-[10px]">{audience.label}</p>
+                </div>
+                <p className="text-[9px] text-muted-foreground">{audience.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Consequences */}
+          <div className="bg-secondary/50 rounded-lg p-2">
+            <h5 className="font-semibold text-foreground text-[10px] mb-1">If Not Solved:</h5>
+            <ul className="text-[9px] text-muted-foreground space-y-0.5">
+              <li>• Continued systemic inequality disguised as "market forces"</li>
+              <li>• Environmental collapse while solutions remain disconnected</li>
+              <li>• Loss of €1.8 trillion circular economy opportunity</li>
+              <li>• Failure to meet UN SDGs</li>
+            </ul>
+          </div>
         </div>
       </div>
     </PitchSlide>
