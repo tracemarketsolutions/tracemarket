@@ -1,10 +1,7 @@
-import { Mail, ExternalLink } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import traceMarketLogo from "@/assets/tracemarket-logo.png";
-import circoolerLogo from "@/assets/circooler-logo.png";
-import traceMarketQR from "@/assets/tracemarket-qr.png";
-import circoolerQR from "@/assets/circooler-qr.png";
-import bevisioneersLogo from "@/assets/bevisioneers-logo.png";
+import { MessageSquare, Mail, Handshake, Heart } from "lucide-react";
+import PitchSlide from "../PitchSlide";
+import traceMarketQr from "@/assets/tracemarket-qr.png";
+import circoolerQr from "@/assets/circooler-qr.png";
 
 interface QuestionsSlideProps {
   slideNumber: number;
@@ -12,117 +9,92 @@ interface QuestionsSlideProps {
 }
 
 const QuestionsSlide = ({ slideNumber, totalSlides }: QuestionsSlideProps) => {
-  const lookingFor = [
-    { category: "Funding", items: ["BeVisioneers €20K", "Impact investors €250K", "EU grants"] },
-    { category: "Strategic Partners", items: ["Retailers", "Certification bodies", "Universities"] },
-    { category: "Collaborators", items: ["Policy makers", "Tech partners", "Movement leaders"] },
+  const discussionPoints = [
+    "How can transparency become the foundation for economic justice?",
+    "What role can your organization play in making supply chains visible?",
+    "How do we scale circular solutions from proof-of-concept to systematic change?",
+  ];
+
+  const partnerTypes = [
+    { icon: Handshake, label: "Funding Partners", desc: "BeVisioneers, Impact Investors, EU Grants" },
+    { icon: MessageSquare, label: "Strategic Partners", desc: "Retailers, Certifications, Universities" },
+    { icon: Heart, label: "Mission-Aligned", desc: "Policy Makers, Media, Movement Leaders" },
   ];
 
   return (
-    <div className="flex-shrink-0 w-[90vw] md:w-[85vw] lg:w-[80vw] max-w-5xl h-[600px] md:h-[700px] rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/10 via-background to-accent/10 p-6 md:p-10 flex flex-col snap-center relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 right-10 w-32 h-32 rounded-full bg-primary blur-3xl" />
-        <div className="absolute bottom-20 left-20 w-48 h-48 rounded-full bg-accent blur-3xl" />
-      </div>
+    <PitchSlide
+      slideNumber={slideNumber}
+      totalSlides={totalSlides}
+      title="Questions + Feedback"
+      subtitle="Join the Movement for Transparency & Circularity"
+      variant="gradient"
+    >
+      <div className="grid md:grid-cols-2 gap-2 h-full">
+        {/* Left - Discussion & Partners */}
+        <div className="space-y-2">
+          <div className="bg-card rounded-lg p-2 border border-border/50">
+            <h4 className="font-semibold text-foreground text-[10px] mb-1 flex items-center gap-1">
+              <MessageSquare className="h-3 w-3 text-primary" />
+              Let's Discuss:
+            </h4>
+            <ul className="space-y-0.5">
+              {discussionPoints.map((point) => (
+                <li key={point} className="text-[8px] text-muted-foreground">
+                  • {point}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-      {/* Logos & Slide Number */}
-      <div className="flex items-center justify-between mb-4 relative z-10">
-        <div className="flex items-center gap-3">
-          <img src={traceMarketLogo} alt="Trace.Market" className="h-6 md:h-8" />
-          <div className="w-px h-6 bg-border/50" />
-          <img src={circoolerLogo} alt="Circooler.Solutions" className="h-5 md:h-6" />
-        </div>
-        <span className="text-sm text-muted-foreground font-medium">
-          {slideNumber} / {totalSlides}
-        </span>
-      </div>
-
-      {/* Content */}
-      <div className="flex-1 relative z-10 flex flex-col">
-        <div className="text-center mb-6">
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
-            Questions + Feedback
-          </h2>
-          <p className="text-lg text-primary font-semibold">
-            We've Proven That Justice Is Possible—Now Let's Make It Inevitable.
-          </p>
-        </div>
-
-        <div className="flex-1 grid md:grid-cols-2 gap-6">
-          {/* Looking For */}
-          <div className="space-y-3">
-            <h4 className="font-semibold text-foreground">We're Looking For:</h4>
-            {lookingFor.map((group) => (
-              <div key={group.category} className="bg-card/50 rounded-lg p-3 border border-border/50">
-                <p className="font-medium text-foreground text-sm mb-1">{group.category}</p>
-                <ul className="space-y-0.5">
-                  {group.items.map((item) => (
-                    <li key={item} className="text-xs text-muted-foreground">• {item}</li>
-                  ))}
-                </ul>
+          <div className="space-y-1">
+            <h4 className="font-semibold text-foreground text-[10px]">We're Looking For:</h4>
+            {partnerTypes.map((partner) => (
+              <div key={partner.label} className="flex items-center gap-1.5 bg-card rounded p-1.5 border border-border/50">
+                <div className="p-1 rounded-full bg-primary/10">
+                  <partner.icon className="h-2.5 w-2.5 text-primary" />
+                </div>
+                <div>
+                  <p className="font-medium text-foreground text-[9px]">{partner.label}</p>
+                  <p className="text-[7px] text-muted-foreground">{partner.desc}</p>
+                </div>
               </div>
             ))}
           </div>
+        </div>
 
-          {/* QR Codes & Contact */}
-          <div className="flex flex-col justify-between">
-            <div className="grid grid-cols-2 gap-4 mb-4">
-              <div className="text-center">
-                <img src={traceMarketQR} alt="Trace.Market QR" className="w-24 h-24 mx-auto mb-2" />
-                <p className="text-xs text-muted-foreground">trace.market</p>
-              </div>
-              <div className="text-center">
-                <img src={circoolerQR} alt="Circooler QR" className="w-24 h-24 mx-auto mb-2" />
-                <p className="text-xs text-muted-foreground">circooler.solutions</p>
-              </div>
+        {/* Right - Contact & QR */}
+        <div className="space-y-2">
+          <div className="bg-primary/10 rounded-lg p-2 border border-primary/20 text-center">
+            <p className="text-[10px] font-semibold text-foreground mb-0.5">
+              The question isn't whether change is possible - we've proven it is.
+            </p>
+            <p className="text-[9px] text-primary font-medium">
+              Will you join us in making it inevitable?
+            </p>
+          </div>
+
+          <div className="flex items-center gap-2 bg-card rounded p-1.5 border border-border/50">
+            <Mail className="h-3 w-3 text-primary" />
+            <div>
+              <p className="text-[10px] font-medium text-foreground">info@trace.market</p>
+              <p className="text-[8px] text-muted-foreground">www.trace.market | www.circooler.solutions</p>
             </div>
+          </div>
 
-            <div className="space-y-2">
-              <a href="mailto:info@trace.market">
-                <Button className="w-full gap-2" variant="default">
-                  <Mail className="h-4 w-4" />
-                  info@trace.market
-                </Button>
-              </a>
-              <div className="flex gap-2">
-                <a href="https://trace.market" target="_blank" rel="noopener noreferrer" className="flex-1">
-                  <Button variant="outline" className="w-full gap-1 text-xs">
-                    <ExternalLink className="h-3 w-3" />
-                    trace.market
-                  </Button>
-                </a>
-                <a href="https://circooler.solutions" target="_blank" rel="noopener noreferrer" className="flex-1">
-                  <Button variant="outline" className="w-full gap-1 text-xs">
-                    <ExternalLink className="h-3 w-3" />
-                    circooler.solutions
-                  </Button>
-                </a>
-              </div>
+          {/* QR Codes */}
+          <div className="grid grid-cols-2 gap-2">
+            <div className="bg-card rounded-lg p-1.5 border border-primary/30 text-center">
+              <img src={traceMarketQr} alt="Trace.Market QR" className="w-14 h-14 mx-auto mb-0.5" />
+              <p className="text-[8px] font-medium text-foreground">Trace.Market</p>
+            </div>
+            <div className="bg-card rounded-lg p-1.5 border border-accent/30 text-center">
+              <img src={circoolerQr} alt="Circooler.Solutions QR" className="w-14 h-14 mx-auto mb-0.5" />
+              <p className="text-[8px] font-medium text-foreground">Circooler.Solutions</p>
             </div>
           </div>
         </div>
-
-        {/* Footer Message */}
-        <div className="text-center mt-4 pt-4 border-t border-border/50">
-          <p className="text-sm text-muted-foreground">
-            The Question Isn't Whether Change Is Possible—We've Proven It Is.
-          </p>
-          <p className="text-sm font-semibold text-foreground">
-            The Question Is: Will You Join Us in Making It Inevitable?
-          </p>
-        </div>
       </div>
-
-      {/* BeVisioneers Logo - Bottom Right */}
-      <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6">
-        <img 
-          src={bevisioneersLogo} 
-          alt="BeVisioneers - The Mercedes-Benz Fellowship" 
-          className="h-6 md:h-8 opacity-70"
-        />
-      </div>
-    </div>
+    </PitchSlide>
   );
 };
 

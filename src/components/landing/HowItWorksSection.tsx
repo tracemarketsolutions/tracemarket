@@ -20,7 +20,7 @@ const steps = [
     icon: BarChart3,
     title: "Get Your LCA",
     description: "We calculate your product's environmental footprint.",
-    details: "Life-Cycle Assessment (LCA) measures your product's environmental impact from raw materials to disposal — including CO₂, water, and energy use.",
+    details: "Life-Cycle Assessment (LCA) measures your product's environmental impact from raw materials to disposal - including CO₂, water, and energy use.",
     tooltip: "LCA = Life-Cycle Assessment: A scientific method to measure the total environmental impact of a product throughout its entire lifecycle.",
     color: "accent",
   },

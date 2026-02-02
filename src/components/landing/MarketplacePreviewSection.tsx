@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Leaf, Droplets, Zap, ExternalLink } from "lucide-react";
+import { ArrowRight, Leaf, Droplets, ExternalLink } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -32,7 +32,7 @@ const placeholderProducts = [
     id: "3",
     name: "Recycled Aluminum Can",
     company: "GreenPack",
-    image: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=400&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1610024062303-e355e94c7a8c?w=400&h=300&fit=crop",
     co2e: 0.08,
     water: 45,
     industry: "Packaging",
@@ -153,26 +153,17 @@ const MarketplacePreviewSection = () => {
                   </div>
                 </div>
 
-                {/* View DPP Button */}
-                {hasPublishedProducts ? (
-                  <Link to={`/dpp/${product.companySlug}/${product.slug}`}>
-                    <Button variant="outline" size="sm" className="w-full gap-2">
-                      View DPP
-                      <ExternalLink className="h-3 w-3" />
-                    </Button>
-                  </Link>
-                ) : (
-                  <a 
-                    href="https://package.trace.market/?tokenId=0x7ed749dc218f6015412158123097d6314cd9998f22903a5487d73f36d7045061#/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button variant="outline" size="sm" className="w-full gap-2">
-                      View Example
-                      <ExternalLink className="h-3 w-3" />
-                    </Button>
-                  </a>
-                )}
+                {/* View Button - Always redirect to browse.trace.market */}
+                <a 
+                  href="https://browse.trace.market/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="outline" size="sm" className="w-full gap-2">
+                    View Example
+                    <ExternalLink className="h-3 w-3" />
+                  </Button>
+                </a>
               </div>
             </div>
           ))}
