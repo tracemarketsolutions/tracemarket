@@ -2,7 +2,7 @@ import { Users } from "lucide-react";
 import gergelyPhoto from "@/assets/team/gergely-aron-dzsida.jpeg";
 import balintPhoto from "@/assets/team/balint-drahota-szabo.jpg";
 import jimPhoto from "@/assets/team/jim-montasir.jpeg";
-import szabolcsPhoto from "@/assets/team/szabolcs-varnai.jpg";
+import szabolcsPhoto from "@/assets/team/szabolcs-szekelyi.jpg";
 import arturPhoto from "@/assets/team/artur-szilagyi.jpg";
 import markPhoto from "@/assets/team/mark-malhotra.jpg";
 
@@ -27,7 +27,7 @@ const TeamSection = () => {
       photo: jimPhoto,
     },
     {
-      name: "Szabolcs Várnai",
+      name: "Szabolcs Székelyi",
       role: "Backend Developer",
       description: "Platform architecture and decentralized systems. Swarm blockchain integration.",
       photo: szabolcsPhoto,

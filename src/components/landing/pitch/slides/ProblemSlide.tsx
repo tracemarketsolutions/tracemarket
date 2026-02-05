@@ -1,4 +1,4 @@
-import { AlertTriangle, Eye, Users, ShoppingBag, Building2, Landmark, Leaf, TrendingUp } from "lucide-react";
+import { AlertTriangle, TrendingUp, Users, ShoppingBag, Building2 } from "lucide-react";
 import PitchSlide from "../PitchSlide";
 
 interface ProblemSlideProps {
@@ -7,83 +7,103 @@ interface ProblemSlideProps {
 }
 
 const ProblemSlide = ({ slideNumber, totalSlides }: ProblemSlideProps) => {
-  const stats = [
-    { value: "828M", label: "People face hunger", icon: Users },
-    { value: "1.3B", label: "Tons food wasted/year", icon: AlertTriangle },
-    { value: "78%", label: "Want sustainability data", icon: Eye },
-    { value: "23%", label: "Trust current labels", icon: TrendingUp },
+  const problemStats = [
+    { 
+      value: "1.3B tons", 
+      label: "Food wasted annually", 
+      context: "Global - 1/3 of all food produced",
+      source: "UN FAO 2024"
+    },
+    { 
+      value: "828M", 
+      label: "People facing hunger", 
+      context: "While food rots in supply chains",
+      source: "World Food Programme"
+    },
+    { 
+      value: "78%", 
+      label: "Consumers want transparency", 
+      context: "EU consumer surveys show demand for product origin data",
+      source: "EU Consumer Survey 2023"
+    },
+    { 
+      value: "23%", 
+      label: "Trust sustainability labels", 
+      context: "Current certifications lack verification",
+      source: "Consumer Trust Index"
+    },
   ];
 
-  const audiences = [
-    { icon: Building2, label: "Sustainable Producers", desc: "Fighting for recognition" },
-    { icon: ShoppingBag, label: "Conscious Consumers", desc: "Demanding transparency" },
-    { icon: Leaf, label: "Circular Businesses", desc: "Seeking connections" },
-    { icon: Landmark, label: "Impact Investors", desc: "Requiring proof" },
+  const stakeholders = [
+    { icon: Building2, label: "SME Producers", pain: "Can't prove their sustainable practices affordably" },
+    { icon: ShoppingBag, label: "Conscious Consumers", pain: "Can't verify claims before buying" },
+    { icon: TrendingUp, label: "Circular Businesses", pain: "Can't find partners for byproduct streams" },
   ];
 
   return (
     <PitchSlide
       slideNumber={slideNumber}
       totalSlides={totalSlides}
-      title="The Problem: Systemic Inequality Through Opacity"
-      subtitle="Target Audiences & Stakeholders"
+      title="The Problem"
+      subtitle="A Broken System of Invisible Supply Chains"
       variant="accent"
     >
-      <div className="grid md:grid-cols-2 gap-3 h-full">
-        {/* Left - Problem Description */}
-        <div className="space-y-2">
-          <div className="bg-card rounded-lg p-2 border border-border/50">
-            <p className="text-xs text-foreground leading-relaxed">
-              Modern supply chains aren't just opaque - they're designed to hide inequality. When consumers can't see how products are made, <strong className="text-destructive">exploitation becomes invisible</strong>. When businesses can't trace waste streams, <strong className="text-accent">circular opportunities disappear</strong>.
+      <div className="grid md:grid-cols-2 gap-4 h-full">
+        {/* Left - The Problem Explained */}
+        <div className="space-y-3">
+          <div className="bg-card rounded-lg p-3 border border-destructive/30">
+            <h4 className="font-semibold text-foreground text-sm mb-2 flex items-center gap-2">
+              <AlertTriangle className="h-4 w-4 text-destructive" />
+              The Core Issue
+            </h4>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Modern supply chains are <strong className="text-foreground">invisible by design</strong>. 
+              When businesses can't see their own supply chains, they can't optimize them. 
+              When consumers can't verify claims, trust erodes. When byproducts are invisible, 
+              they become waste instead of resources.
             </p>
           </div>
 
-          {/* Stats Grid */}
-          <div className="grid grid-cols-2 gap-1.5">
-            {stats.map((stat) => (
-              <div key={stat.label} className="bg-card rounded-lg p-1.5 border border-border/50 text-center">
-                <stat.icon className="h-3 w-3 text-primary mx-auto mb-0.5" />
-                <p className="text-base font-bold text-foreground">{stat.value}</p>
-                <p className="text-[9px] text-muted-foreground leading-tight">{stat.label}</p>
+          {/* Key Stats with Context */}
+          <div className="grid grid-cols-2 gap-2">
+            {problemStats.map((stat) => (
+              <div key={stat.label} className="bg-card rounded-lg p-2 border border-border/50">
+                <p className="text-lg font-bold text-primary">{stat.value}</p>
+                <p className="text-[10px] font-medium text-foreground">{stat.label}</p>
+                <p className="text-[8px] text-muted-foreground mt-0.5">{stat.context}</p>
+                <p className="text-[7px] text-primary/60 italic">{stat.source}</p>
               </div>
             ))}
-          </div>
-
-          {/* Key Message */}
-          <div className="bg-destructive/10 rounded-lg p-2 border border-destructive/20">
-            <p className="text-xs text-foreground text-center">
-              <strong>€143 billion</strong> in products wasted annually due to lack of traceability
-            </p>
           </div>
         </div>
 
-        {/* Right - Target Audiences */}
-        <div className="space-y-2">
-          <h4 className="font-semibold text-foreground text-xs">Who We Serve:</h4>
+        {/* Right - Who Feels This Pain */}
+        <div className="space-y-3">
+          <h4 className="font-semibold text-foreground text-sm flex items-center gap-2">
+            <Users className="h-4 w-4 text-primary" />
+            Who Feels This Pain?
+          </h4>
           
-          <div className="grid grid-cols-2 gap-1.5">
-            {audiences.map((audience) => (
-              <div key={audience.label} className="bg-card rounded-lg p-2 border border-border/50">
-                <div className="flex items-center gap-1.5 mb-0.5">
-                  <div className="p-1 rounded-full bg-primary/10">
-                    <audience.icon className="h-2.5 w-2.5 text-primary" />
+          <div className="space-y-2">
+            {stakeholders.map((item) => (
+              <div key={item.label} className="bg-card rounded-lg p-2.5 border border-border/50">
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="p-1.5 rounded-full bg-primary/10">
+                    <item.icon className="h-3.5 w-3.5 text-primary" />
                   </div>
-                  <p className="font-medium text-foreground text-[10px]">{audience.label}</p>
+                  <p className="font-semibold text-foreground text-sm">{item.label}</p>
                 </div>
-                <p className="text-[9px] text-muted-foreground">{audience.desc}</p>
+                <p className="text-xs text-muted-foreground pl-8">{item.pain}</p>
               </div>
             ))}
           </div>
 
-          {/* Consequences */}
-          <div className="bg-secondary/50 rounded-lg p-2">
-            <h5 className="font-semibold text-foreground text-[10px] mb-1">If Not Solved:</h5>
-            <ul className="text-[9px] text-muted-foreground space-y-0.5">
-              <li>• Continued systemic inequality disguised as "market forces"</li>
-              <li>• Environmental collapse while solutions remain disconnected</li>
-              <li>• Loss of €1.8 trillion circular economy opportunity</li>
-              <li>• Failure to meet UN SDGs</li>
-            </ul>
+          {/* The Opportunity */}
+          <div className="bg-primary/5 rounded-lg p-2.5 border border-primary/20">
+            <p className="text-xs text-foreground text-center">
+              <strong className="text-primary">The opportunity:</strong> EU DPP regulations (mandatory 2027) 
+              will require all products to have digital passports - but <strong>10,000+ SMEs</strong> lack affordable solutions.
+            </p>
           </div>
         </div>
       </div>
