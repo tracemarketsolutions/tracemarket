@@ -3,7 +3,7 @@ import PitchSlide from "../PitchSlide";
 import gergelyPhoto from "@/assets/team/gergely-aron-dzsida.jpeg";
 import balintPhoto from "@/assets/team/balint-drahota-szabo.jpg";
 import jimPhoto from "@/assets/team/jim-montasir.jpeg";
-import szabolcsPhoto from "@/assets/team/szabolcs-varnai.jpg";
+import szabolcsPhoto from "@/assets/team/szabolcs-szekelyi.jpg";
 import arturPhoto from "@/assets/team/artur-szilagyi.jpg";
 import markPhoto from "@/assets/team/mark-malhotra.jpg";
 
@@ -33,7 +33,7 @@ const TeamSlide = ({ slideNumber, totalSlides }: TeamSlideProps) => {
       photo: jimPhoto,
     },
     {
-      name: "Szabolcs Várnai",
+      name: "Szabolcs Székelyi",
       role: "Backend Developer",
       description: "Platform architecture and systems.",
       photo: szabolcsPhoto,

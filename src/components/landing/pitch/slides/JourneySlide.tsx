@@ -1,4 +1,4 @@
-import { CheckCircle2, Target, Rocket } from "lucide-react";
+import { CheckCircle2, Target, Rocket, AlertCircle } from "lucide-react";
 import PitchSlide from "../PitchSlide";
 import traceMarketLogo from "@/assets/tracemarket-logo.png";
 import circoolerLogo from "@/assets/circooler-logo-new.png";
@@ -12,68 +12,70 @@ const JourneySlide = ({ slideNumber, totalSlides }: JourneySlideProps) => {
   const milestones = [
     {
       year: "2021-23",
-      title: "Research & Awakening",
-      items: ["Global documentary work", "Solution research"],
+      title: "Research",
+      items: ["Documentary work in 30+ countries", "Identified pattern: solutions exist, connections don't"],
       completed: true,
     },
     {
       year: "2024",
-      title: "Building Foundation",
-      items: ["BeVisioneers Fellowship", "University partnerships", "MVP Published"],
+      title: "Foundation",
+      items: ["BeVisioneers Fellowship", "Built MVP with university partners", "First client tests"],
       completed: true,
     },
     {
       year: "2025",
-      title: "Proving Impact",
-      items: ["1,200kg food diverted", "Product lines developed", "Pilot partners"],
+      title: "Validation",
+      items: ["2,200kg food diverted", "AI tools developed & tested", "Paying clients onboarded"],
       completed: true,
     },
     {
       year: "2026",
-      title: "Breakthrough",
-      items: ["1,000kg/month capacity", "2,200kg total saved", "Platform launch"],
+      title: "Scale",
+      items: ["Legal foundation (Q1)", "Equipment & HACCP (Q2-Q3)", "Marketplace launch (Q4)"],
       completed: false,
     },
   ];
 
-  const roadmap = [
-    { phase: "Q1 2026", tm: "Legal foundation", cs: "BeVisioneers €20K" },
-    { phase: "Q2-Q3", tm: "Platform development", cs: "Equipment, HACCP" },
-    { phase: "Q4", tm: "Marketplace launch", cs: "31,094kg target" },
-    { phase: "2027-30", tm: "5,000+ companies", cs: "177,450kg/year" },
+  const risks = [
+    { risk: "Scaling without resources", mitigation: "BeVisioneers funding + proven bootstrap capability" },
+    { risk: "Resistance to transparency", mitigation: "EU mandate creates urgency; consumer demand growing" },
+    { risk: "Technology adoption", mitigation: "AI simplifies onboarding; user-friendly interfaces" },
   ];
 
   return (
     <PitchSlide
       slideNumber={slideNumber}
       totalSlides={totalSlides}
-      title="Our Journey + Roadmap"
-      subtitle="Integrated Progress - Both Projects Together"
+      title="Our Journey & Roadmap"
+      subtitle="From Research to Ready-to-Scale"
       variant="default"
     >
-      <div className="space-y-2 h-full">
+      <div className="space-y-3 h-full">
         {/* Timeline */}
-        <div className="grid grid-cols-4 gap-1">
-          {milestones.map((milestone, index) => (
+        <div className="grid grid-cols-4 gap-2">
+          {milestones.map((milestone) => (
             <div
               key={milestone.year}
-              className={`bg-card rounded p-2 border ${
+              className={`bg-card rounded-lg p-2.5 border ${
                 milestone.completed ? "border-primary/30" : "border-accent/30"
               }`}
             >
-              <div className="flex items-center gap-1 mb-0.5">
+              <div className="flex items-center gap-1.5 mb-1">
                 {milestone.completed ? (
-                  <CheckCircle2 className="h-2.5 w-2.5 text-primary" />
+                  <CheckCircle2 className="h-3.5 w-3.5 text-primary" />
                 ) : (
-                  <Target className="h-2.5 w-2.5 text-accent" />
+                  <Target className="h-3.5 w-3.5 text-accent" />
                 )}
-                <span className="text-[10px] font-bold text-primary">{milestone.year}</span>
+                <span className={`text-sm font-bold ${milestone.completed ? "text-primary" : "text-accent"}`}>
+                  {milestone.year}
+                </span>
               </div>
-              <h4 className="font-semibold text-foreground text-[10px] mb-0.5">{milestone.title}</h4>
-              <ul className="space-y-0">
+              <h4 className="font-semibold text-foreground text-xs mb-1">{milestone.title}</h4>
+              <ul className="space-y-0.5">
                 {milestone.items.map((item) => (
-                  <li key={item} className="text-[8px] text-muted-foreground">
-                    • {item}
+                  <li key={item} className="text-[9px] text-muted-foreground flex items-start gap-1">
+                    <span className="text-primary">•</span>
+                    {item}
                   </li>
                 ))}
               </ul>
@@ -81,36 +83,44 @@ const JourneySlide = ({ slideNumber, totalSlides }: JourneySlideProps) => {
           ))}
         </div>
 
-        {/* Roadmap with both projects */}
-        <div className="bg-secondary/50 rounded-lg p-2">
-          <h4 className="font-semibold text-foreground mb-1.5 text-xs flex items-center gap-1">
-            <Rocket className="h-3 w-3 text-primary" />
-            Roadmap Forward
-          </h4>
-          <div className="grid grid-cols-4 gap-1">
-            {roadmap.map((item) => (
-              <div key={item.phase} className="bg-card rounded p-1.5 border border-border/50">
-                <p className="text-[10px] font-bold text-primary mb-0.5">{item.phase}</p>
-                <div className="space-y-0.5">
-                  <div className="flex items-center gap-1">
-                    <img src={traceMarketLogo} alt="TM" className="h-2" />
-                    <p className="text-[8px] text-muted-foreground">{item.tm}</p>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <img src={circoolerLogo} alt="CS" className="h-2" />
-                    <p className="text-[8px] text-muted-foreground">{item.cs}</p>
-                  </div>
-                </div>
+        {/* 2027-2030 Vision */}
+        <div className="bg-secondary/50 rounded-lg p-2.5">
+          <div className="flex items-center gap-2 mb-2">
+            <Rocket className="h-4 w-4 text-primary" />
+            <h4 className="font-semibold text-foreground text-sm">2027-2030 Vision</h4>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            <div className="flex items-start gap-2">
+              <img src={traceMarketLogo} alt="TM" className="h-4 mt-0.5" />
+              <div>
+                <p className="text-xs font-medium text-foreground">Trace.Market</p>
+                <p className="text-[10px] text-muted-foreground">5,000+ companies using DPPs • EU expansion • €15B market share</p>
               </div>
-            ))}
+            </div>
+            <div className="flex items-start gap-2">
+              <img src={circoolerLogo} alt="CS" className="h-4 mt-0.5" />
+              <div>
+                <p className="text-xs font-medium text-foreground">Circooler.Solutions</p>
+                <p className="text-[10px] text-muted-foreground">177,450kg/year recovery • Network of circular partners • Regional hubs</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* What We've Proven */}
-        <div className="bg-primary/5 rounded-lg p-2 border border-primary/20">
-          <p className="text-[10px] text-foreground text-center">
-            <span className="font-semibold">What We've Proven:</span> Market demand exists • Solutions work at scale • Team delivers without resources • Exponential growth demonstrated
-          </p>
+        {/* Risks & Mitigation */}
+        <div className="bg-card rounded-lg p-2.5 border border-border/50">
+          <h4 className="font-semibold text-foreground mb-1.5 text-xs flex items-center gap-1.5">
+            <AlertCircle className="h-3.5 w-3.5 text-destructive" />
+            Key Risks & Mitigation
+          </h4>
+          <div className="grid grid-cols-3 gap-2">
+            {risks.map((item) => (
+              <div key={item.risk} className="bg-secondary/30 rounded p-1.5">
+                <p className="text-[10px] font-medium text-foreground">{item.risk}</p>
+                <p className="text-[9px] text-muted-foreground mt-0.5">{item.mitigation}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </PitchSlide>

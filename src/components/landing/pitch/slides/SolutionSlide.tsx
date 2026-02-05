@@ -1,4 +1,4 @@
-import { Globe, Recycle, CheckCircle2, Heart } from "lucide-react";
+import { CheckCircle2, Heart, ArrowRight } from "lucide-react";
 import PitchSlide from "../PitchSlide";
 import traceMarketLogo from "@/assets/tracemarket-logo.png";
 import circoolerLogo from "@/assets/circooler-logo-new.png";
@@ -13,83 +13,111 @@ const SolutionSlide = ({ slideNumber, totalSlides }: SolutionSlideProps) => {
     <PitchSlide
       slideNumber={slideNumber}
       totalSlides={totalSlides}
-      title="Introducing Our Solution"
-      subtitle="Rebuilding the System for Justice & Transparency"
+      title="Our Solution"
+      subtitle="Two Integrated Platforms for Transparency & Circularity"
       variant="gradient"
     >
       <div className="grid md:grid-cols-2 gap-4 h-full">
         {/* Trace.Market */}
-        <div className="bg-card rounded-xl border border-primary/30 p-3">
+        <div className="bg-card rounded-xl border border-primary/30 p-3 flex flex-col">
           <div className="flex items-center gap-2 mb-2">
             <img src={traceMarketLogo} alt="Trace.Market" className="h-6" />
-            <div>
-              <p className="text-xs text-muted-foreground">The Transparency Engine</p>
+          </div>
+          <p className="text-[11px] text-muted-foreground mb-2">
+            <strong className="text-foreground">What it does:</strong> Makes supply chains visible through 
+            AI-powered data collection and generates EU-compliant Digital Product Passports.
+          </p>
+          
+          <div className="space-y-1.5 flex-1">
+            <div className="flex items-start gap-2">
+              <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" />
+              <div>
+                <p className="text-xs text-foreground font-medium">AI Data Collection</p>
+                <p className="text-[9px] text-muted-foreground">Scrapes websites, processes documents to build supply chain maps automatically</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-2">
+              <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" />
+              <div>
+                <p className="text-xs text-foreground font-medium">LCA Calculation</p>
+                <p className="text-[9px] text-muted-foreground">Life-Cycle Assessment: measures CO2, water, and energy footprint</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-2">
+              <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" />
+              <div>
+                <p className="text-xs text-foreground font-medium">Interactive Supply Chain Maps</p>
+                <p className="text-[9px] text-muted-foreground">Visualize ingredient origins and transport routes on 3D maps</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-2">
+              <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" />
+              <div>
+                <p className="text-xs text-foreground font-medium">Marketplace Integration</p>
+                <p className="text-[9px] text-muted-foreground">List products or embed DPPs on your own website</p>
+              </div>
             </div>
           </div>
-          <p className="text-xs text-muted-foreground mb-2">
-            Makes supply chains visible. Helps companies see their processes, measure impact, and prove their values.
-          </p>
-          <ul className="space-y-1">
-            {[
-              "Swarm blockchain-verified DPPs",
-              "LCA impact measurement",
-              "3D supply chain visualization",
-              "Marketplace integration",
-              "EU ESPR compliant",
-            ].map((item) => (
-              <li key={item} className="flex items-center gap-2 text-xs text-foreground">
-                <CheckCircle2 className="h-3 w-3 text-primary shrink-0" />
-                {item}
-              </li>
-            ))}
-          </ul>
+
+          <div className="bg-primary/10 rounded p-1.5 mt-2 border border-primary/20">
+            <p className="text-[9px] text-primary text-center font-medium">EU DPP Ready (2027 mandate)</p>
+          </div>
         </div>
 
         {/* Circooler.Solutions */}
-        <div className="bg-card rounded-xl border border-accent/30 p-3">
+        <div className="bg-card rounded-xl border border-accent/30 p-3 flex flex-col">
           <div className="flex items-center gap-2 mb-2">
             <img src={circoolerLogo} alt="Circooler.Solutions" className="h-6" />
-            <div>
-              <p className="text-xs text-muted-foreground">Circular Transformation</p>
+          </div>
+          <p className="text-[11px] text-muted-foreground mb-2">
+            <strong className="text-foreground">What it does:</strong> Transforms waste streams into resources 
+            through consulting, planning, and hands-on implementation of circular solutions.
+          </p>
+          
+          <div className="space-y-1.5 flex-1">
+            <div className="flex items-start gap-2">
+              <CheckCircle2 className="h-3.5 w-3.5 text-accent shrink-0 mt-0.5" />
+              <div>
+                <p className="text-xs text-foreground font-medium">AI Waste Analysis</p>
+                <p className="text-[9px] text-muted-foreground">Free tool identifies circular opportunities in your waste streams</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-2">
+              <CheckCircle2 className="h-3.5 w-3.5 text-accent shrink-0 mt-0.5" />
+              <div>
+                <p className="text-xs text-foreground font-medium">Consulting & Planning</p>
+                <p className="text-[9px] text-muted-foreground">Expert guidance on implementing circular solutions (€100-€10K)</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-2">
+              <CheckCircle2 className="h-3.5 w-3.5 text-accent shrink-0 mt-0.5" />
+              <div>
+                <p className="text-xs text-foreground font-medium">Partner Network</p>
+                <p className="text-[9px] text-muted-foreground">Connect with businesses who can use your byproducts</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-2">
+              <CheckCircle2 className="h-3.5 w-3.5 text-accent shrink-0 mt-0.5" />
+              <div>
+                <p className="text-xs text-foreground font-medium">Implementation Support</p>
+                <p className="text-[9px] text-muted-foreground">Hands-on help setting up circular processes</p>
+              </div>
             </div>
           </div>
-          <p className="text-xs text-muted-foreground mb-2">
-            Concrete implementation of circular economy principles. We identify, plan, and execute waste-to-value solutions.
-          </p>
-          <ul className="space-y-1">
-            {[
-              "Waste stream analysis",
-              "R&D partnerships",
-              "Implementation support",
-              "B2B waste matching",
-              "Partner network connections",
-            ].map((item) => (
-              <li key={item} className="flex items-center gap-2 text-xs text-foreground">
-                <CheckCircle2 className="h-3 w-3 text-accent shrink-0" />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
 
-        {/* Buy One Give One */}
-        <div className="md:col-span-2 bg-primary/5 rounded-lg p-2 border border-primary/20">
-          <div className="flex items-center justify-center gap-4">
-            <div className="flex items-center gap-2">
-              <Heart className="h-4 w-4 text-primary" />
-              <span className="font-semibold text-foreground text-sm">Buy-One-Give-One Model</span>
-            </div>
-            <p className="text-xs text-muted-foreground">
-              With Circooler.Solutions, we donate a meal for every sale. Until now, we've donated everything as we're seeking funding for legal operations.
-            </p>
+          <div className="bg-accent/10 rounded p-1.5 mt-2 border border-accent/20 flex items-center justify-center gap-2">
+            <Heart className="h-3 w-3 text-accent" />
+            <p className="text-[9px] text-accent font-medium">Buy-One-Give-One: Donate a meal per sale</p>
           </div>
         </div>
 
         {/* Integration Power */}
-        <div className="md:col-span-2 bg-secondary/50 rounded-lg p-2 text-center">
-          <p className="text-xs text-muted-foreground">
-            <span className="font-semibold text-foreground">Integration Power:</span> Every circular solution gets complete traceability through DPPs, creating verified stories of transformation.
-          </p>
+        <div className="md:col-span-2 bg-secondary/50 rounded-lg p-2.5 flex items-center justify-center gap-4">
+          <span className="text-xs text-muted-foreground">Trace.Market</span>
+          <ArrowRight className="h-4 w-4 text-primary" />
+          <span className="text-xs text-foreground font-medium">Every circular solution gets a verified DPP</span>
+          <ArrowRight className="h-4 w-4 text-accent" />
+          <span className="text-xs text-muted-foreground">Circooler.Solutions</span>
         </div>
       </div>
     </PitchSlide>
